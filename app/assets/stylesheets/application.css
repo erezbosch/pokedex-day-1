@@ -115,4 +115,14 @@ body {
   max-height: 200px;
 }
 
+div.pokemon-detail li {
+  list-style: none;
+}
 
+.detail * {
+  margin: 10px 0px;
+}
+
+.detail label input, .detail label select {
+  margin: 10px 10px;
+}

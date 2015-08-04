@@ -16,11 +16,21 @@ class PokemonController < ApplicationController
   end
 
   def index
-    @pokemon = Pokemon.all
+    @pokemon = Pokemon.order(:id)
   end
 
   def  show
     @pokemon = Pokemon.find(params[:id])
+  end
+
+  def update
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.update(pokemon_params)
+    if @pokemon.save
+      render 'show'
+    else
+      render json: @pokemon.errors.full_messages, status: 422
+    end
   end
 
   private
